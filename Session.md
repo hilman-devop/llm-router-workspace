@@ -85,9 +85,9 @@ Kimi Desktop di-uninstall user → seluruh setup proxy di atas sudah **dibongkar
 
 ## Pengganti: Kimi CLI → 9Router
 
-Kimi CLI 1.49.0 diinstall via `uv tool install kimi-cli` (binary: `C:\Users\Elz\.local\bin\kimi.exe`, PATH sudah di-set).
+Kimi CLI 1.49.0 diinstall via `uv tool install kimi-cli` (binary: `%USERPROFILE%\.local\bin\kimi.exe`, PATH sudah di-set).
 
-Config `C:\Users\Elz\.kimi\config.toml`:
+Config `%USERPROFILE%\.kimi\config.toml`:
 
 ```toml
 default_model = "k3"
@@ -109,9 +109,9 @@ Tanpa proxy/hosts/env — CLI ngomong langsung HTTP ke 9Router.
 
 ## WebBridge → Kimi CLI
 
-- Daemon: `C:\Users\Elz\.kimi-webbridge\bin\kimi-webbridge.exe` (upgrade v1.11.3 → **v1.11.5**), port 127.0.0.1:10086
-- Skill terinstall di `C:\Users\Elz\.kimi\skills\kimi-webbridge\` (juga ke Claude Code, Codex, .kimi-code) via `kimi-webbridge install-skill -y`
-- Autostart: HKCU Run `KimiWebBridge` → `C:\Users\Elz\.kimi-webbridge\autostart.vbs` (hidden)
+- Daemon: `%USERPROFILE%\.kimi-webbridge\bin\kimi-webbridge.exe` (upgrade v1.11.3 → **v1.11.5**), port 127.0.0.1:10086
+- Skill terinstall di `%USERPROFILE%\.kimi\skills\kimi-webbridge\` (juga ke Claude Code, Codex, .kimi-code) via `kimi-webbridge install-skill -y`
+- Autostart: HKCU Run `KimiWebBridge` → `%USERPROFILE%\.kimi-webbridge\autostart.vbs` (hidden)
 - Browser extension: connected (v1.11.5)
 - Verifikasi end-to-end: CLI → 9Router → skill → daemon → extension: `list_tabs` → `{"success":true,"tabs":[]}` ✅
 - Tools: navigate, click, fill, snapshot, screenshot, network, save_as_pdf, upload, cdp (browser asli + sesi login user)
@@ -126,17 +126,17 @@ Chat, thinking, tool calling, subagents (`agent`/`coder`/`explore`/`plan` — di
 ## Inventaris file yang dibuat/diubah sesi ini
 
 **Baru:**
-- `C:\Users\Elz\.kimi-webbridge\autostart.vbs` — autostart daemon webbridge
-- `C:\Users\Elz\.kimi\skills\kimi-webbridge\SKILL.md` + `operations.md` — oleh installer webbridge
+- `%USERPROFILE%\.kimi-webbridge\autostart.vbs` — autostart daemon webbridge
+- `%USERPROFILE%\.kimi\skills\kimi-webbridge\SKILL.md` + `operations.md` — oleh installer webbridge
 **Legacy Kimi Desktop: SUDAH DIHAPUS SEMUA (2026-08-04)** — proxy.js, run-proxy.vbs, kimi-gw-node.exe, make-cert.js, cert agent-gw, skrip hosts, proxy.log, skrip tes temporer, dan combo 9Router (`k2d6-agent`, `k3-agent`, `k3-agent-swarm`, `k2p6`, `k2p6-agent`). Folder ini kini hanya berisi `Session.md`.
 
 **Diubah:**
-- `C:\Users\Elz\.kimi\config.toml` — provider `9router` + model `k3` + `default_model = "k3"`
+- `%USERPROFILE%\.kimi\config.toml` — provider `9router` + model `k3` + `default_model = "k3"`
 - Registry HKCU Run: `KimiWebBridge` (baru); `KimiRouterProxy` (dihapus)
 - hosts: entri `agent-gw.kimi.com` sudah dihapus
 - Env user: `NODE_EXTRA_CA_CERTS`, `KIMI_CAPTURE` sudah dihapus
 
-**Terinstall:** `kimi-cli` 1.49.0 via `uv tool` (di `C:\Users\Elz\AppData\Roaming\uv\tools\kimi-cli`), PATH `.local\bin` sudah masuk user PATH.
+**Terinstall:** `kimi-cli` 1.49.0 via `uv tool` (di `%USERPROFILE%\AppData\Roaming\uv\tools\kimi-cli`), PATH `.local\bin` sudah masuk user PATH.
 
 - Apa pun model yang dipilih di UI (Instant/K3/K3 Swarm/K2.6 Agent), request chat selalu jadi `bb/blackboxai/moonshotai/kimi-k3`.
 - **K3 Swarm** digate membership Kimi (Moderato-tier ke atas) — akun Free memang ditolak sisi server, bukan dari setup ini.
